@@ -1,0 +1,63 @@
+{
+  "user": {
+    "firstName": "Alex",
+    "lastName": "Chen"
+  },
+  "accounts": [
+    {
+      "id": "chk123",
+      "name": "Primary Checking",
+      "balance": 4250.77,
+      "currency": "USD"
+    },
+    {
+      "id": "sav456",
+      "name": "High-Yield Savings",
+      "balance": 15600.25,
+      "currency": "USD"
+    }
+  ],
+  "transactions": [
+    { "id": "txn001", "accountId": "chk123", "date": "2023-10-26", "description": "Netflix Subscription", "amount": -15.49 },
+    { "id": "txn002", "accountId": "chk123", "date": "2023-10-25", "description": "Paycheck Deposit", "amount": 2500.00 },
+    { "id": "txn003", "accountId": "sav456", "date": "2023-10-24", "description": "Transfer from Checking", "amount": 500.00 },
+    { "id": "txn004", "accountId": "chk123", "date": "2023-10-23", "description": "Supermarket", "amount": -85.60 }
+  ]
+}
+
+
+
+// A simple "Intent Router"
+const intents = [
+    {
+        // Intent to check balance
+        keywords: ['balance', 'money', 'much', 'checking', 'savings'],
+        action: 'getAccountBalance' // Name of the function to call
+    },
+    {
+        // Intent to see recent transactions
+        keywords: ['transactions', 'recent', 'latest', 'activity', 'spent'],
+        action: 'getRecentTransactions'
+    },
+    {
+        // Intent to make a transfer
+        keywords: ['transfer', 'send', 'move', 'give'],
+        action: 'initiateTransfer'
+    }
+];
+
+function determineIntent(text) {
+    for (const intent of intents) {
+        // If any keyword from an intent is found in the user's speech...
+        if (intent.keywords.some(keyword => text.toLowerCase().includes(keyword))) {
+            return intent.action; // ...return the name of the function to run.
+        }
+    }
+    return 'unrecognized'; // Fallback if no intent is found
+}
+
+// Example usage:
+const userInput = "how much money is in my checking account";
+const actionToTake = determineIntent(userInput); // This will return 'getAccountBalance'
+
+// You can then use a switch statement or if/else to call the correct function

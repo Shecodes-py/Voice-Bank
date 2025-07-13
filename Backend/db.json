@@ -1,0 +1,50 @@
+{
+  "user": {
+    "firstName": "Alex",
+    "lastName": "Chen"
+  },
+  "accounts": [
+    {
+      "id": "chk123",
+      "name": "Primary Checking",
+      "balance": 4250.77,
+      "currency": "USD"
+    },
+    {
+      "id": "sav456",
+      "name": "Retirement Savings",
+      "balance": 15600.25,
+      "currency": "USD"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "txn001",
+      "accountId": "chk123",
+      "date": "2023-10-26",
+      "description": "Hydro Quebec Bill",
+      "amount": -75.50
+    },
+    {
+      "id": "txn002",
+      "accountId": "chk123",
+      "date": "2023-10-25",
+      "description": "Pension Deposit",
+      "amount": 2500.00
+    },
+    {
+      "id": "txn003",
+      "accountId": "chk123",
+      "date": "2023-10-23",
+      "description": "Supermarket Purchase",
+      "amount": -85.60
+    },
+    {
+      "id": "txn004",
+      "accountId": "chk123",
+      "date": "2023-10-22",
+      "description": "Transfer to Sarah Chen",
+      "amount": -100.00
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Bank</title>
+    
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>VoiceBank</h1>
+        <p>Click the microphone and ask: "What's my balance?" or "Show my recent transactions."</p>
+        
+        <button id="startButton">🎤</button>
+        
+        <div id="status">Click the mic to start</div>
+        
+        <div class="output-box" id="transcriptBox">
+            <strong>You said:</strong> <span id="transcript">...</span>
+        </div>
+        
+        <div class="output-box" id="responseBox">
+            <strong>VoiceBank replied:</strong> <span id="response">...</span>
+        </div>
+    </div>
+    
+</body>
+</html>

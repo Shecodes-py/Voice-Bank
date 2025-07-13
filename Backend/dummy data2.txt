@@ -1,0 +1,46 @@
+<body>
+    <h1>Voice-Bank</h1>
+    <p>Click the button to start speaking.</p>
+    <div id="voice-bank">
+        <select id="voices"></select>
+
+    <button onclick="startListening()">   🔊 Speak Text      </button>
+    <button onclick="stopListening()">   ⏹️ Stop Listening      </button>
+    <button onclick="speak('Hello, this is a test of the speech synthesis feature.')">   🔊 Speak Text      </button>
+    </div>
+
+</body>
+
+
+function startListening() {
+    console.log("Listening...");
+    recognition.start();
+}
+
+recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    console.log("User said:", transcript);
+    speak(transcript); // Echo the user's speech back to them
+    // LATER pass this transcript to your Intent Router.
+};
+
+recognition.onerror = (event) => {
+    console.error("Speech recognition error:", event.error);
+};
+
+function stopListening() {
+    console.log("Stopping listening...");
+    recognition.stop();
+}
+
+function speak(text) {
+    if (speechSynthesis.speaking) {
+        console.error("Already speaking.");
+        return;
+    }
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.onend = () => {
+        console.log("Finished speaking.");
+    };
+    speechSynthesis.speak(utterance);
+}

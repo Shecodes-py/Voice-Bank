@@ -1,1 +1,22 @@
-  
+{
+    "name": "Voice-Bank PWA",
+    "short_name": "Voice-Bank",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4a90e2",
+
+    "description": "A Progressive Web App for managing and accessing voice bank data.",
+    "icons": [
+        {
+            "src": "/assets/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
